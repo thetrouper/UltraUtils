@@ -1,0 +1,118 @@
+name: UltraUtils
+version: '${version}'
+main: me.trouper.ultrautils.UltraUtils
+api-version: 1.19
+authors: [ obvWolf ]
+description: A Utility plugin for server management and moderation.
+website: https://trouper.me/
+permissions:
+  ultrautils.admin:
+    default: op
+    description: Access to the admin command
+  ultrautils.gamemode:
+    default: op
+    description: This permission is required to use ANY gamemode commands. It does not give permission to switch to any gamemodes.
+  ultrautils.gamemode.adventure:
+    default: op
+    description: Allows changing gamemode to adventure
+  ultrautils.gamemode.creative:
+    default: op
+    description: Allows changing gamemode to creative
+  ultrautils.gamemode.survival:
+    default: op
+    description: Allows changing gamemode to survival
+  ultrautils.gamemode.spectator:
+    default: op
+    description: Allows changing gamemode to spectator
+  ultrautils.gamemode.others:
+    default: op
+    description: Allows setting the gamemode of other players
+  ultrautils.craft:
+    default: op
+    description: Access to the portable crafting table
+  ultrautils.anvil:
+    default: op
+    description: Access to the portable anvil
+  ultrautils.cartography:
+    default: op
+    description: Access to the portable cartography table
+  ultrautils.grindstone:
+    default: op
+    description: Access to the portable grindstone
+  ultrautils.loom:
+    default: op
+    description: Access to the portable loom
+  ultrautils.smithing:
+    default: op
+    description: Access to the portable smithing table
+  ultrautils.stonecutter:
+    default: op
+    description: Access to the portable stonecutter
+  ultrautils.flight:
+    default: op
+    description: Enable or disable flight (only the sender)
+  ultrautils.flight.others:
+    defualt: op
+    description: Enable or disable flight for specific players
+
+
+commands:
+  ultrautils:
+    description: Admin command for admin things
+    usage: /ultrautils
+    permission: ultrautils.admin
+    aliases:
+      - uu
+  gma:
+    description: Change gamemode to adventure
+    permission: ultrautils.gamemode.adventure
+    usage: /gma [<player>]
+  gmc:
+    description: Change gamemode to creative
+    permission: ultrautils.gamemode.creative
+    usage: /gmc [<player>]
+  gms:
+    description: Change gamemode to survival
+    permission: ultrautils.gamemode.survival
+    usage: /gms [<player>]
+  gmsp:
+    description: Change gamemode to spectator
+    permission: ultrautils.gamemode.spectator
+    usage: /gmsp [<player>]
+  gamemode:
+    description: Root gamemode changing command. Required for all the other gamemode commands.
+    permission: ultrautils.gamemode
+    usage: /gamemode <gamemode> [<player>]
+  anvil:
+    permission: ultrautils.anvil
+    description: a portable anvil
+  cartography:
+    permission: ultrautils.cartography
+    description: a portable cartography table
+    aliases:
+      - mapstation
+  craft:
+    permission: ultrautils.craft
+    description: a portable crafting table
+    aliases:
+      - workbench
+  grindstone:
+    permission: ultrautils.grindstone
+    description: a portable grindstone
+  loom:
+    permission: ultrautils.loom
+    description: a portable loom
+  smithingtable:
+    description: a portable smithing table
+    permission: ultrautils.smithing
+    aliases:
+      - upgradetable
+  stonecutter:
+    description: a portable stonecutter
+    permission: ultrautils.stonecutter
+  fly:
+    description: Toggle flight status
+    permission: ultrautils.flight
+    usage: /fly [<player>]
+    aliases:
+      - flight

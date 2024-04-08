@@ -5,6 +5,7 @@ api-version: 1.19
 authors: [ obvWolf ]
 description: A Utility plugin for server management and moderation.
 website: https://trouper.me/
+depend: [ ProtocolLib ]
 permissions:
   ultrautils.admin:
     default: op
@@ -54,6 +55,23 @@ permissions:
   ultrautils.flight.others:
     defualt: op
     description: Enable or disable flight for specific players
+  ultrautils.world:
+    default: op
+    description: Change worlds
+  ultrautils.world.others:
+    default: op
+    description: allows change other people's world
+  ultrautils.macrotool:
+    default: op
+    description: Allows the user to assign commands to tools.
+  ultrautils.enderchest:
+    default: op
+    description: Open Enderchest
+  ultrautils.enderchest.others:
+    default: op
+    description: veiw anyone's enderchest
+  ultrautils.whitelist:
+    default: op
 
 
 commands:
@@ -116,3 +134,30 @@ commands:
     usage: /fly [<player>]
     aliases:
       - flight
+  speed:
+    permission: ultrautils.speed
+    description: Change player's default speeds
+    usage: /speed <int> [walk|flight] [<player>]
+  world:
+    permission: ultrautils.world
+    description: Switch worlds
+    usage: /world [<world>] [<player>]
+  broadcast:
+    permission: ultrautils.broadcast
+    description: sends a message to the whole server
+    usage: /broadcast <message>
+  macrotool:
+    permission: ultrautils.macrotool
+    description: Assigns a command to an item of your choice
+    usage: /macrotool <command>
+    aliases:
+      - mt
+      - powertool
+      - macro
+  enderchest:
+    permission: ultrautils.enderchest
+    usage: /enderchest [<player>]
+  whitelist:
+    permission: ultrautils.whitelist
+    description: whitelist
+    usage: /whitelist [add|remove|list|on|off]

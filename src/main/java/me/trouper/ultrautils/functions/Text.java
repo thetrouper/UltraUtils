@@ -1,4 +1,4 @@
-package functions;
+package me.trouper.ultrautils.functions;
 
 
 import me.trouper.ultrautils.UltraUtils;

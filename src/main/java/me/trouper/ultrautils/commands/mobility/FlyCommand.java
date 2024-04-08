@@ -1,23 +1,24 @@
 package me.trouper.ultrautils.commands.mobility;
 
-import functions.Text;
 import io.github.itzispyder.pdk.commands.Args;
 import io.github.itzispyder.pdk.commands.CommandRegistry;
 import io.github.itzispyder.pdk.commands.CustomCommand;
 import io.github.itzispyder.pdk.commands.Permission;
 import io.github.itzispyder.pdk.commands.completions.CompletionBuilder;
 import io.github.itzispyder.pdk.utils.ServerUtils;
+import me.trouper.ultrautils.functions.Text;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@CommandRegistry(value = "fly", permission = @Permission("ultrautils.flight"))
+@CommandRegistry(value = "fly", permission = @Permission("ultrautils.flight"),printStackTrace = true)
 public class FlyCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, Args args) {
         Player user = (Player) sender;
         Player target = Bukkit.getPlayer(args.get(1).toString());
         if (target == null && (sender instanceof Player)) target = (Player) sender;
@@ -41,7 +42,7 @@ public class FlyCommand implements CustomCommand {
     }
 
     @Override
-    public void dispatchCompletions(CompletionBuilder b) {
+    public void dispatchCompletions(CompletionBuilder b, CommandSender sender) {
         List<String> players = new ArrayList<>();
         for (Player player : ServerUtils.players()) {
             players.add(player.getName());

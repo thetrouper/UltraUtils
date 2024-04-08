@@ -1,26 +1,24 @@
 package me.trouper.ultrautils.commands.gamemode;
 
-import functions.Text;
 import io.github.itzispyder.pdk.commands.Args;
 import io.github.itzispyder.pdk.commands.CommandRegistry;
 import io.github.itzispyder.pdk.commands.CustomCommand;
 import io.github.itzispyder.pdk.commands.Permission;
 import io.github.itzispyder.pdk.commands.completions.CompletionBuilder;
-import io.github.itzispyder.pdk.utils.ServerUtils;
+import me.trouper.ultrautils.functions.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
 
-@CommandRegistry(value = "gamemode", permission = @Permission("ultrautils.gamemode"))
+@CommandRegistry(value = "gamemode", permission = @Permission("ultrautils.gamemode"),printStackTrace = true)
 public class GamemodeCommand implements CustomCommand {
 
     @Override
-    public void dispatchCommand(CommandSender sender, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, Args args) {
         Player target = Bukkit.getPlayer(args.get(1).toString());
         if (target == null && (sender instanceof Player)) target = (Player) sender;
         if (target == null) {
@@ -36,13 +34,9 @@ public class GamemodeCommand implements CustomCommand {
     }
 
     @Override
-    public void dispatchCompletions(CompletionBuilder b) {
-        List<String> players = new ArrayList<>();
-        for (Player player : ServerUtils.players()) {
-            players.add(player.getName());
-        }
+    public void dispatchCompletions(CompletionBuilder b, CommandSender sender) {
         b.then(b.arg("adventure","creative","survival","spectator")
-                .then(b.arg(players))
+                .then(b.arg(Bukkit.getOnlinePlayers(),Player::getName))
         );
     }
 

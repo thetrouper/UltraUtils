@@ -1,25 +1,24 @@
 package me.trouper.ultrautils.commands.mobility;
 
-import functions.Text;
 import io.github.itzispyder.pdk.commands.Args;
 import io.github.itzispyder.pdk.commands.CommandRegistry;
 import io.github.itzispyder.pdk.commands.CustomCommand;
 import io.github.itzispyder.pdk.commands.Permission;
 import io.github.itzispyder.pdk.commands.completions.CompletionBuilder;
 import io.github.itzispyder.pdk.utils.ServerUtils;
-import me.trouper.ultrautils.UltraUtils;
+import me.trouper.ultrautils.functions.Text;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@CommandRegistry(value = "speed", permission = @Permission("ultrautils.speed"))
+@CommandRegistry(value = "speed", permission = @Permission("ultrautils.speed"),printStackTrace = true)
 public class SpeedCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, Args args) {
         String type = args.get(1).toString();
         float speed = args.get(0).toFloat();
         Player user = (Player) sender;
@@ -48,7 +47,7 @@ public class SpeedCommand implements CustomCommand {
     }
 
     @Override
-    public void dispatchCompletions(CompletionBuilder b) {
+    public void dispatchCompletions(CompletionBuilder b, CommandSender sender) {
         List<String> players = new ArrayList<>();
         for (Player player : ServerUtils.players()) {
             players.add(player.getName());

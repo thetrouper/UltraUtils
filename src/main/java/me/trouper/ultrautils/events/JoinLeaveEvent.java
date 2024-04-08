@@ -1,9 +1,8 @@
 package me.trouper.ultrautils.events;
 
-import functions.Text;
 import io.github.itzispyder.pdk.events.CustomListener;
 import me.trouper.ultrautils.UltraUtils;
-import me.trouper.ultrautils.data.config.Config;
+import me.trouper.ultrautils.functions.Text;
 import net.kyori.adventure.text.Component;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -17,7 +16,7 @@ public class JoinLeaveEvent implements CustomListener {
             e.joinMessage(null);
             return;
         }
-        e.joinMessage(Component.text(Text.color(UltraUtils.config.plugin.joinMessage)));
+        e.joinMessage(Component.text(Text.color(UltraUtils.config.plugin.joinMessage.formatted(e.getPlayer().getName()))));
     }
 
     @EventHandler
@@ -26,6 +25,6 @@ public class JoinLeaveEvent implements CustomListener {
             e.quitMessage(null);
             return;
         }
-        e.quitMessage(Component.text(Text.color(UltraUtils.config.plugin.leaveMessage)));
+        e.quitMessage(Component.text(Text.color(UltraUtils.config.plugin.leaveMessage.formatted(e.getPlayer().getName()))));
     }
 }

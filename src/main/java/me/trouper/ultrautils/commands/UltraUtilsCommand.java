@@ -25,7 +25,7 @@ import java.util.List;
 public class UltraUtilsCommand implements CustomCommand {
 
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label,Args args) {
         Player p = (Player) sender;
 
         switch (args.get(0).toString()) {

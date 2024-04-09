@@ -15,7 +15,7 @@ import org.bukkit.command.CommandSender;
 public class BroadcastCommand implements CustomCommand {
 
     @Override
-    public void dispatchCommand(CommandSender commandSender, Command command, Args args) {
+    public void dispatchCommand(CommandSender commandSender, Command command, String label, Args args) {
         Bukkit.getServer().broadcast(Component.text(Text.color(UltraUtils.config.broadcastPrefix + args.getAll().toString())));
     }
 

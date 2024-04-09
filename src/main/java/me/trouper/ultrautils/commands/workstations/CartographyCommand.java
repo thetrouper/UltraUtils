@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandRegistry(value = "cartography", permission = @Permission("ultrautils.cartography"),playersOnly = true)
 public class CartographyCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         Player p = (Player) sender;
         p.openCartographyTable(p.getLocation(),true);
     }

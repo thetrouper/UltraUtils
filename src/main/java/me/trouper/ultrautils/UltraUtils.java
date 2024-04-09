@@ -54,10 +54,10 @@ public final class UltraUtils extends JavaPlugin {
 
         new UltraUtilsCommand().register();
         new GamemodeCommand().register();
-        new GMACommand().register();
-        new GMCCommand().register();
-        new GMSPCommand().register();
-        new GMSCommand().register();
+//        new GMACommand().register();
+//        new GMCCommand().register();
+//        new GMSPCommand().register();
+//        new GMSCommand().register();
         new AnvilCommand().register();
         new CartographyCommand().register();
         new CraftingCommand().register();

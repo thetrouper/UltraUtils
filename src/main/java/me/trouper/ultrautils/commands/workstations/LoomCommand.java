@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandRegistry(value = "smith", permission = @Permission("ultrautils.smith"),playersOnly = true)
 public class LoomCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         Player p = (Player) sender;
         p.openLoom(p.getLocation(),true);
     }

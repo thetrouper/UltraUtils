@@ -18,18 +18,49 @@ import javax.annotation.Nullable;
 public class GamemodeCommand implements CustomCommand {
 
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         Player target = Bukkit.getPlayer(args.get(1).toString());
         if (target == null && (sender instanceof Player)) target = (Player) sender;
         if (target == null) {
             sender.sendMessage(Text.prefix("Only players may execute that command"));
             return;
         }
+        target.sendMessage("Target: %s, Sender: %s, Command: %s, Label: %s, Args: %s".formatted(target,sender,command,label,args));
+        switch (label) {
+            case "gma" -> {
+                setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
+                return;
+            }
+            case "gmc" -> {
+                setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
+                return;
+            }
+            case "gms" -> {
+                setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
+                return;
+            }
+            case "gmsp" -> {
+                setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
+                return;
+            }
+        }
         switch (args.get(0).toString()) {
-            case "a","adventure","adv","gma" -> setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
-            case "c","creative","cre","gmc" -> setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
-            case "s","survival","sur","gms" -> setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
-            case "sp","spectator","spec","gmsp" -> setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
+            case "a","adventure","adv","gma" -> {
+                setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
+                return;
+            }
+            case "c","creative","cre","gmc" -> {
+                setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
+                return;
+            }
+            case "s","survival","sur","gms" -> {
+                setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
+                return;
+            }
+            case "sp","spectator","spec","gmsp" -> {
+                setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
+                return;
+            }
         }
     }
 

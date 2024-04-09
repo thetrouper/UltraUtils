@@ -18,7 +18,7 @@ import java.util.List;
 @CommandRegistry(value = "fly", permission = @Permission("ultrautils.flight"),printStackTrace = true)
 public class FlyCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         Player user = (Player) sender;
         Player target = Bukkit.getPlayer(args.get(1).toString());
         if (target == null && (sender instanceof Player)) target = (Player) sender;

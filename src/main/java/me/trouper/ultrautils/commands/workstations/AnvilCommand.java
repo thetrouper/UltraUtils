@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandRegistry(value = "anvil", permission = @Permission("ultrautils.anvil"),playersOnly = true)
 public class AnvilCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         Player p = (Player) sender;
         p.openAnvil(p.getLocation(),true);
     }

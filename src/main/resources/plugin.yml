@@ -80,27 +80,16 @@ commands:
     usage: /ultrautils
     permission: ultrautils.admin
     aliases:
-      - uu
-  gma:
-    description: Change gamemode to adventure
-    permission: ultrautils.gamemode.adventure
-    usage: /gma [<player>]
-  gmc:
-    description: Change gamemode to creative
-    permission: ultrautils.gamemode.creative
-    usage: /gmc [<player>]
-  gms:
-    description: Change gamemode to survival
-    permission: ultrautils.gamemode.survival
-    usage: /gms [<player>]
-  gmsp:
-    description: Change gamemode to spectator
-    permission: ultrautils.gamemode.spectator
-    usage: /gmsp [<player>]
+      - uur
   gamemode:
     description: Root gamemode changing command. Required for all the other gamemode commands.
     permission: ultrautils.gamemode
     usage: /gamemode <gamemode> [<player>]
+    aliases:
+      - gmc
+      - gms
+      - gmsp
+      - gma
   anvil:
     permission: ultrautils.anvil
     description: a portable anvil

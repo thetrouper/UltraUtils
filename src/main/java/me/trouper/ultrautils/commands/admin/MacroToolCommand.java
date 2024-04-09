@@ -26,7 +26,7 @@ import java.util.List;
 @CommandRegistry(value = "macrotool",permission = @Permission("ultrautils.macrotool"),playersOnly = true,printStackTrace = true)
 public class MacroToolCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command cmd, Args args) {
+    public void dispatchCommand(CommandSender sender, Command cmd, String label, Args args) {
         Player p = (Player) sender;
         String command = args.getAll(1).toString();
         ItemStack item = p.getInventory().getItemInMainHand();

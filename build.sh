@@ -10,7 +10,7 @@ if [ $? -eq 0 ]; then
     # SFTP upload
     SFTP_HOST="home-server"
     SFTP_USER="trouper"
-    SFTP_REMOTE_DIR="/home/trouper/minecraft/data/plugins/"
+    SFTP_REMOTE_DIR="/home/trouper/testing/data/plugins/"
 
     # Create a temporary file with a unique name
     TEMP_FILE=$(mktemp)

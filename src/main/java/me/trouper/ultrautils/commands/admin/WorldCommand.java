@@ -21,7 +21,7 @@ import java.util.List;
 public class WorldCommand implements CustomCommand {
 
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         String worldName = args.get(0).toString();
         World world = Bukkit.getWorld(worldName);
         if (world == null) {

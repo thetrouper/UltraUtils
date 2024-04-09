@@ -18,7 +18,7 @@ import java.util.List;
 @CommandRegistry(value = "speed", permission = @Permission("ultrautils.speed"),printStackTrace = true)
 public class SpeedCommand implements CustomCommand {
     @Override
-    public void dispatchCommand(CommandSender sender, Command command, Args args) {
+    public void dispatchCommand(CommandSender sender, Command command, String label, Args args) {
         String type = args.get(1).toString();
         float speed = args.get(0).toFloat();
         Player user = (Player) sender;

@@ -25,42 +25,13 @@ public class GamemodeCommand implements CustomCommand {
             sender.sendMessage(Text.prefix("Only players may execute that command"));
             return;
         }
-        target.sendMessage("Target: %s, Sender: %s, Command: %s, Label: %s, Args: %s".formatted(target,sender,command,label,args));
-        switch (label) {
-            case "gma" -> {
-                setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
-                return;
-            }
-            case "gmc" -> {
-                setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
-                return;
-            }
-            case "gms" -> {
-                setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
-                return;
-            }
-            case "gmsp" -> {
-                setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
-                return;
-            }
-        }
-        switch (args.get(0).toString()) {
-            case "a","adventure","adv","gma" -> {
-                setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
-                return;
-            }
-            case "c","creative","cre","gmc" -> {
-                setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
-                return;
-            }
-            case "s","survival","sur","gms" -> {
-                setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
-                return;
-            }
-            case "sp","spectator","spec","gmsp" -> {
-                setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
-                return;
-            }
+        String gamemode = label;
+        if (label.equals("gamemode")) gamemode = args.get(0).toString();
+        switch (gamemode) {
+            case "a","adventure","adv","gma" -> setGameMode(sender,target,GameMode.ADVENTURE, "ultrautils.gamemode.adventure");
+            case "c","creative","cre","gmc" -> setGameMode(sender,target,GameMode.CREATIVE,"ultrautils.gamemode.creative");
+            case "s","survival","sur","gms" -> setGameMode(sender,target,GameMode.SURVIVAL,"ultrautils.gamemode.survival");
+            case "sp","spectator","spec","gmsp" -> setGameMode(sender,target,GameMode.SPECTATOR,"ultrautils.gamemode.spectator");
         }
     }
 
@@ -73,7 +44,7 @@ public class GamemodeCommand implements CustomCommand {
 
     public static void setGameMode(CommandSender user, @Nullable Player target, GameMode gm, String permission) {
         if (!user.hasPermission(permission)) {
-            user.sendMessage(Text.prefix("You lack the permission to swith gamemodes to %c%s&7."));
+            user.sendMessage(Text.prefix("You lack the permission to switch gamemodes to %c%s&7."));
             return;
         }
 
